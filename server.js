@@ -36,6 +36,25 @@ const getSeed = async () => {
 
 const mojibakePattern = /[\u00C3\u00C5\u00C4\u00E2\u00C2\uFFFD\u0111\u0163\u00D0\u00DE\u00DD\u00FD\u00FE]/;
 const isMojibake = (value) => mojibakePattern.test(value);
+const fixMojibake = (value) => {
+  if (typeof value !== "string" || !isMojibake(value)) return value;
+  const fixed = Buffer.from(value, "latin1").toString("utf8");
+  return isMojibake(fixed) ? value : fixed;
+};
+
+const sanitizeStrings = (value) => {
+  if (Array.isArray(value)) {
+    return value.map((item) => sanitizeStrings(item));
+  }
+  if (isPlainObject(value)) {
+    const result = {};
+    Object.entries(value).forEach(([key, item]) => {
+      result[key] = sanitizeStrings(item);
+    });
+    return result;
+  }
+  return fixMojibake(value);
+};
 
 const mergeWithSeed = (value, seedValue) => {
   if (seedValue === undefined) return value;
@@ -132,7 +151,8 @@ async function readDb() {
   }
 
   const seed = await getSeed();
-  return mergeWithSeed(data.data, seed);
+  const merged = mergeWithSeed(data.data, seed);
+  return sanitizeStrings(merged);
 }
 
 async function writeDb(data) {
