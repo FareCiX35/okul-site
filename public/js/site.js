@@ -1,4 +1,4 @@
-ï»¿const formatDate = (dateStr) => {
+const formatDate = (dateStr) => {
   if (!dateStr) return "";
   const date = new Date(dateStr);
   if (Number.isNaN(date.getTime())) return dateStr;
@@ -7,6 +7,31 @@
     month: "long",
     year: "numeric"
   }).format(date);
+};
+
+const escapeHtml = (value) => {
+  return String(value ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+};
+
+const safeUrl = (value) => {
+  if (!value) return "";
+  const raw = String(value).trim();
+  if (!raw) return "";
+  if (raw.startsWith("#") || raw.startsWith("/")) return raw;
+  try {
+    const url = new URL(raw, window.location.origin);
+    if (url.protocol === "http:" || url.protocol === "https:") {
+      return url.href;
+    }
+  } catch {
+    return "";
+  }
+  return "";
 };
 
 const setText = (id, value) => {
@@ -26,7 +51,8 @@ const setHtml = (id, value) => {
 const renderCards = (container, items, template) => {
   const el = document.getElementById(container);
   if (!el) return;
-  el.innerHTML = items.map(template).join("");
+  const list = Array.isArray(items) ? items : [];
+  el.innerHTML = list.map(template).join("");
 };
 
 async function loadContent() {
@@ -39,7 +65,8 @@ async function loadContent() {
 
   const logo = document.getElementById("logo");
   if (logo && data.settings.logoUrl) {
-    logo.src = data.settings.logoUrl;
+    const src = safeUrl(data.settings.logoUrl);
+    if (src) logo.src = src;
   }
 
   setText("hero-title", data.hero.title);
@@ -49,19 +76,21 @@ async function loadContent() {
 
   const heroImage = document.getElementById("hero-image");
   if (heroImage) {
-    heroImage.style.backgroundImage = `url('${data.hero.heroImage}')`;
+    const imageUrl = safeUrl(data.hero.heroImage);
+    heroImage.style.backgroundImage = imageUrl ? `url('${imageUrl}')` : "";
   }
 
-  const quickLinks = data.quickLinks.map((link) => {
-    return `<a class="quick-link" href="${link.url}">${link.title}</a>`;
+  const quickLinks = (data.quickLinks || []).map((link) => {
+    const href = safeUrl(link.url);
+    return `<a class="quick-link" href="${escapeHtml(href)}">${escapeHtml(link.title)}</a>`;
   });
   setHtml("quick-links", quickLinks.join(""));
 
   renderCards("stats", data.stats, (item) => {
     return `
       <div class="stat">
-        <h3>${item.value}</h3>
-        <p>${item.label}</p>
+        <h3>${escapeHtml(item.value)}</h3>
+        <p>${escapeHtml(item.label)}</p>
       </div>
     `;
   });
@@ -73,17 +102,17 @@ async function loadContent() {
   setText("history-text", data.pages.history);
 
   renderCards("values-list", data.pages.values, (item) => {
-    return `<span class="chip">${item}</span>`;
+    return `<span class="chip">${escapeHtml(item)}</span>`;
   });
 
   renderCards("news-list", data.news, (item) => {
     return `
       <article class="card">
-        <div class="card-media" style="background-image: url('${item.image}')"></div>
+        <div class="card-media" style="background-image: url('${safeUrl(item.image)}')"></div>
         <div class="card-body">
-          <p class="meta">${formatDate(item.date)}</p>
-          <h3>${item.title}</h3>
-          <p>${item.summary}</p>
+          <p class="meta">${escapeHtml(formatDate(item.date))}</p>
+          <h3>${escapeHtml(item.title)}</h3>
+          <p>${escapeHtml(item.summary)}</p>
         </div>
       </article>
     `;
@@ -93,10 +122,10 @@ async function loadContent() {
     return `
       <div class="list-item">
         <div>
-          <h4>${item.title}</h4>
-          <p>${item.summary || ""}</p>
+          <h4>${escapeHtml(item.title)}</h4>
+          <p>${escapeHtml(item.summary || "")}</p>
         </div>
-        <span class="badge">${formatDate(item.date)}</span>
+        <span class="badge">${escapeHtml(formatDate(item.date))}</span>
       </div>
     `;
   });
@@ -104,12 +133,12 @@ async function loadContent() {
   renderCards("events-list", data.events, (item) => {
     return `
       <article class="card">
-        <div class="card-media" style="background-image: url('${item.image}')"></div>
+        <div class="card-media" style="background-image: url('${safeUrl(item.image)}')"></div>
         <div class="card-body">
-          <p class="meta">${formatDate(item.date)} Â· ${item.time || ""}</p>
-          <h3>${item.title}</h3>
-          <p>${item.summary}</p>
-          <p class="meta">${item.location || ""}</p>
+          <p class="meta">${escapeHtml(formatDate(item.date))} · ${escapeHtml(item.time || "")}</p>
+          <h3>${escapeHtml(item.title)}</h3>
+          <p>${escapeHtml(item.summary)}</p>
+          <p class="meta">${escapeHtml(item.location || "")}</p>
         </div>
       </article>
     `;
@@ -118,10 +147,10 @@ async function loadContent() {
   renderCards("projects-list", data.projects, (item) => {
     return `
       <article class="card">
-        <div class="card-media" style="background-image: url('${item.image}')"></div>
+        <div class="card-media" style="background-image: url('${safeUrl(item.image)}')"></div>
         <div class="card-body">
-          <h3>${item.title}</h3>
-          <p>${item.summary}</p>
+          <h3>${escapeHtml(item.title)}</h3>
+          <p>${escapeHtml(item.summary)}</p>
         </div>
       </article>
     `;
@@ -131,9 +160,9 @@ async function loadContent() {
     return `
       <article class="card">
         <div class="card-body">
-          <p class="meta">${item.year}</p>
-          <h3>${item.title}</h3>
-          <p>${item.summary}</p>
+          <p class="meta">${escapeHtml(item.year)}</p>
+          <h3>${escapeHtml(item.title)}</h3>
+          <p>${escapeHtml(item.summary)}</p>
         </div>
       </article>
     `;
@@ -143,9 +172,9 @@ async function loadContent() {
     return `
       <div class="list-item">
         <div>
-          <h4>${item.title}</h4>
+          <h4>${escapeHtml(item.title)}</h4>
         </div>
-        <a class="badge" href="${item.url}">Ä°ndir</a>
+        <a class="badge" href="${escapeHtml(safeUrl(item.url))}">Ýndir</a>
       </div>
     `;
   });
@@ -153,10 +182,10 @@ async function loadContent() {
   renderCards("staff-list", data.staff, (item) => {
     return `
       <article class="card">
-        <div class="card-media" style="background-image: url('${item.image}')"></div>
+        <div class="card-media" style="background-image: url('${safeUrl(item.image)}')"></div>
         <div class="card-body">
-          <h3>${item.name}</h3>
-          <p>${item.title}</p>
+          <h3>${escapeHtml(item.name)}</h3>
+          <p>${escapeHtml(item.title)}</p>
         </div>
       </article>
     `;
@@ -164,8 +193,8 @@ async function loadContent() {
 
   renderCards("gallery-list", data.gallery, (item) => {
     return `
-      <div class="gallery-item" style="background-image: url('${item.image}')">
-        <span>${item.title}</span>
+      <div class="gallery-item" style="background-image: url('${safeUrl(item.image)}')">
+        <span>${escapeHtml(item.title)}</span>
       </div>
     `;
   });
@@ -176,19 +205,23 @@ async function loadContent() {
 
   const socialLinks = [];
   if (data.settings.social.instagram) {
-    socialLinks.push(`<a href="${data.settings.social.instagram}" target="_blank" rel="noreferrer">Instagram</a>`);
+    const href = safeUrl(data.settings.social.instagram);
+    if (href) socialLinks.push(`<a href="${escapeHtml(href)}" target="_blank" rel="noreferrer">Instagram</a>`);
   }
   if (data.settings.social.youtube) {
-    socialLinks.push(`<a href="${data.settings.social.youtube}" target="_blank" rel="noreferrer">YouTube</a>`);
+    const href = safeUrl(data.settings.social.youtube);
+    if (href) socialLinks.push(`<a href="${escapeHtml(href)}" target="_blank" rel="noreferrer">YouTube</a>`);
   }
   if (data.settings.social.x) {
-    socialLinks.push(`<a href="${data.settings.social.x}" target="_blank" rel="noreferrer">X</a>`);
+    const href = safeUrl(data.settings.social.x);
+    if (href) socialLinks.push(`<a href="${escapeHtml(href)}" target="_blank" rel="noreferrer">X</a>`);
   }
   setHtml("social-links", socialLinks.join(""));
 
   const mapFrame = document.getElementById("map-frame");
   if (mapFrame) {
-    mapFrame.src = data.settings.mapUrl;
+    const src = safeUrl(data.settings.mapUrl);
+    if (src) mapFrame.src = src;
   }
 }
 

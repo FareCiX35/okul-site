@@ -1,12 +1,17 @@
-﻿:root {
-  --bg: #f4f1e8;
-  --ink: #0b1f1c;
-  --muted: #53615c;
-  --primary: #0b3a34;
-  --accent: #c9a857;
+:root {
+  --bg: #f4f1ec;
+  --bg-strong: #ffffff;
+  --ink: #0d1b1e;
+  --muted: #4c5a60;
+  --primary: #0b2f2e;
+  --primary-strong: #114342;
+  --accent: #c8a25a;
   --card: #ffffff;
-  --border: rgba(11, 31, 28, 0.12);
+  --border: rgba(13, 27, 30, 0.12);
+  --shadow: 0 22px 50px rgba(7, 16, 18, 0.12);
   --radius: 18px;
+  --heading: "Cormorant Garamond", serif;
+  --body: "Sora", sans-serif;
 }
 
 * {
@@ -16,8 +21,10 @@
 }
 
 body {
-  font-family: "Manrope", sans-serif;
-  background: linear-gradient(180deg, #ffffff 0%, var(--bg) 70%);
+  font-family: var(--body);
+  background-image:
+    radial-gradient(circle at 15% 10%, rgba(200, 162, 90, 0.18), transparent 45%),
+    linear-gradient(180deg, #ffffff 0%, var(--bg) 70%);
   color: var(--ink);
 }
 
@@ -28,16 +35,19 @@ body {
 }
 
 .sidebar {
-  background: var(--primary);
+  background: linear-gradient(160deg, #0b2f2e, #0f3c3a);
   color: #fff;
   padding: 28px 22px;
   display: flex;
   flex-direction: column;
   gap: 18px;
+  box-shadow: 0 16px 40px rgba(7, 16, 18, 0.2);
 }
 
 .sidebar h1 {
-  font-size: 20px;
+  font-family: var(--heading);
+  font-size: 22px;
+  letter-spacing: 0.6px;
 }
 
 .sidebar-note {
@@ -54,6 +64,7 @@ body {
 .sidebar a {
   color: rgba(255, 255, 255, 0.85);
   font-weight: 600;
+  padding: 6px 0;
 }
 
 .sidebar a:hover {
@@ -62,10 +73,10 @@ body {
 
 .ghost {
   background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.35);
   color: #fff;
   padding: 10px 14px;
-  border-radius: 10px;
+  border-radius: 12px;
   cursor: pointer;
 }
 
@@ -78,11 +89,16 @@ body {
   border-radius: var(--radius);
   padding: 24px;
   border: 1px solid var(--border);
-  box-shadow: 0 16px 36px rgba(11, 31, 28, 0.08);
+  box-shadow: var(--shadow);
 }
 
 .login {
   max-width: 420px;
+}
+
+.login h2 {
+  font-family: var(--heading);
+  font-size: 26px;
 }
 
 .login form {
@@ -95,15 +111,17 @@ body {
   padding: 12px;
   border-radius: 10px;
   border: 1px solid var(--border);
+  font-size: 14px;
 }
 
 .login button {
-  background: var(--primary);
+  background: linear-gradient(135deg, var(--primary), var(--primary-strong));
   color: #fff;
   padding: 12px;
   border: none;
   border-radius: 10px;
   font-weight: 700;
+  cursor: pointer;
 }
 
 .hint {
@@ -118,7 +136,8 @@ body {
 }
 
 .panel-header h2 {
-  font-size: 26px;
+  font-family: var(--heading);
+  font-size: 28px;
 }
 
 .panel-card {
@@ -126,10 +145,14 @@ body {
   border-radius: var(--radius);
   padding: 24px;
   border: 1px solid var(--border);
+  box-shadow: var(--shadow);
 }
 
 .panel-card h3 {
   margin-bottom: 16px;
+  font-size: 18px;
+  font-family: var(--heading);
+  letter-spacing: 0.3px;
 }
 
 .upload-form {
@@ -148,7 +171,7 @@ body {
 }
 
 .upload-result code {
-  background: rgba(11, 31, 28, 0.06);
+  background: rgba(13, 27, 30, 0.06);
   padding: 6px 8px;
   border-radius: 8px;
   display: inline-block;
@@ -185,13 +208,22 @@ body {
   border-radius: 10px;
   border: 1px solid var(--border);
   font-size: 14px;
+  font-family: var(--body);
+}
+
+.grid-form input:focus,
+.grid-form textarea:focus,
+.collection-form input:focus,
+.collection-form textarea:focus {
+  outline: 2px solid rgba(200, 162, 90, 0.3);
+  border-color: rgba(200, 162, 90, 0.4);
 }
 
 .grid-form button,
 .collection-form button {
   grid-column: span 2;
   justify-self: start;
-  background: var(--primary);
+  background: linear-gradient(135deg, var(--primary), var(--primary-strong));
   color: #fff;
   border: none;
   padding: 10px 16px;

@@ -47,8 +47,28 @@ const upload = multer({
   limits: { fileSize: 8 * 1024 * 1024 }
 });
 
+app.disable("x-powered-by");
 app.use(express.json({ limit: "2mb" }));
-app.use(express.static(path.join(__dirname, "public")));
+app.use((req, res, next) => {
+  res.setHeader("X-Content-Type-Options", "nosniff");
+  res.setHeader("X-Frame-Options", "SAMEORIGIN");
+  res.setHeader("Referrer-Policy", "strict-origin-when-cross-origin");
+  res.setHeader("Permissions-Policy", "camera=(), microphone=(), geolocation=()");
+  res.setHeader("Cross-Origin-Resource-Policy", "same-site");
+  next();
+});
+app.use(express.static(path.join(__dirname, "public"), {
+  setHeaders: (res, filePath) => {
+    const normalized = filePath.toLowerCase();
+    if (normalized.includes(`${path.sep}uploads${path.sep}`)) {
+      res.setHeader("Cache-Control", "no-store");
+      return;
+    }
+    if (/\.(css|js|svg|png|jpg|jpeg|webp)$/.test(normalized)) {
+      res.setHeader("Cache-Control", "public, max-age=3600");
+    }
+  }
+}));
 
 async function readDb() {
   if (!supabase) {
@@ -113,9 +133,25 @@ const asyncHandler = (handler) => (req, res) => {
   });
 };
 
+const rateBuckets = new Map();
+const hitRateLimit = (key, limit, windowMs) => {
+  const now = Date.now();
+  const bucket = rateBuckets.get(key);
+  if (!bucket || now - bucket.start >= windowMs) {
+    rateBuckets.set(key, { start: now, count: 1 });
+    return false;
+  }
+  bucket.count += 1;
+  return bucket.count > limit;
+};
+
 app.use(requireAuth);
 
 app.post("/api/login", (req, res) => {
+  const ip = req.ip || req.connection?.remoteAddress || "unknown";
+  if (hitRateLimit(`login:${ip}`, 8, 10 * 60 * 1000)) {
+    return res.status(429).json({ error: "Çok fazla deneme. Lütfen bekleyin." });
+  }
   const { password } = req.body || {};
   if (password === adminPassword) {
     return res.json({ token: adminToken });
@@ -138,6 +174,10 @@ app.get("/api/collection/:name", asyncHandler(async (req, res) => {
 }));
 
 app.post("/api/collection/:name", asyncHandler(async (req, res) => {
+  const ip = req.ip || req.connection?.remoteAddress || "unknown";
+  if (hitRateLimit(`write:${ip}`, 120, 60 * 1000)) {
+    return res.status(429).json({ error: "Çok fazla istek. Lütfen bekleyin." });
+  }
   const data = await readDb();
   const collection = data[req.params.name];
   if (!Array.isArray(collection)) {
@@ -150,6 +190,10 @@ app.post("/api/collection/:name", asyncHandler(async (req, res) => {
 }));
 
 app.put("/api/collection/:name/:id", asyncHandler(async (req, res) => {
+  const ip = req.ip || req.connection?.remoteAddress || "unknown";
+  if (hitRateLimit(`write:${ip}`, 120, 60 * 1000)) {
+    return res.status(429).json({ error: "Çok fazla istek. Lütfen bekleyin." });
+  }
   const data = await readDb();
   const collection = data[req.params.name];
   if (!Array.isArray(collection)) {
@@ -165,6 +209,10 @@ app.put("/api/collection/:name/:id", asyncHandler(async (req, res) => {
 }));
 
 app.delete("/api/collection/:name/:id", asyncHandler(async (req, res) => {
+  const ip = req.ip || req.connection?.remoteAddress || "unknown";
+  if (hitRateLimit(`write:${ip}`, 120, 60 * 1000)) {
+    return res.status(429).json({ error: "Çok fazla istek. Lütfen bekleyin." });
+  }
   const data = await readDb();
   const collection = data[req.params.name];
   if (!Array.isArray(collection)) {
@@ -177,6 +225,10 @@ app.delete("/api/collection/:name/:id", asyncHandler(async (req, res) => {
 }));
 
 app.put("/api/section/:name", asyncHandler(async (req, res) => {
+  const ip = req.ip || req.connection?.remoteAddress || "unknown";
+  if (hitRateLimit(`write:${ip}`, 120, 60 * 1000)) {
+    return res.status(429).json({ error: "Çok fazla istek. Lütfen bekleyin." });
+  }
   const data = await readDb();
   if (Array.isArray(data[req.params.name])) {
     return res.status(400).json({ error: "Bu bölüm koleksiyon olarak yönetiliyor" });
@@ -187,8 +239,15 @@ app.put("/api/section/:name", asyncHandler(async (req, res) => {
 }));
 
 app.post("/api/upload", upload.single("image"), asyncHandler(async (req, res) => {
+  const ip = req.ip || req.connection?.remoteAddress || "unknown";
+  if (hitRateLimit(`upload:${ip}`, 30, 10 * 60 * 1000)) {
+    return res.status(429).json({ error: "Çok fazla yükleme. Lütfen bekleyin." });
+  }
   if (!req.file) {
     return res.status(400).json({ error: "Dosya yüklenemedi" });
+  }
+  if (!req.file.mimetype || !req.file.mimetype.startsWith("image/")) {
+    return res.status(400).json({ error: "Sadece görsel dosyalar yüklenebilir" });
   }
   if (!supabase) {
     const url = `/uploads/${req.file.filename}`;

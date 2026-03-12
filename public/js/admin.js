@@ -1,4 +1,4 @@
-ï»¿const loginCard = document.getElementById("login-card");
+const loginCard = document.getElementById("login-card");
 const panel = document.getElementById("panel");
 const loginForm = document.getElementById("login-form");
 const logoutBtn = document.getElementById("logout");
@@ -6,6 +6,15 @@ const logoutBtn = document.getElementById("logout");
 const state = {
   token: localStorage.getItem("adminToken"),
   data: null
+};
+
+const escapeHtml = (value) => {
+  return String(value ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
 };
 
 const api = async (path, options = {}) => {
@@ -20,7 +29,7 @@ const api = async (path, options = {}) => {
   const res = await fetch(path, { ...options, headers });
   if (!res.ok) {
     const msg = await res.json().catch(() => ({ error: "Hata" }));
-    throw new Error(msg.error || "Ä°ÅŸlem baÅŸarÄ±sÄ±z");
+    throw new Error(msg.error || "Ýþlem baþarýsýz");
   }
   return res.json();
 };
@@ -118,12 +127,12 @@ const renderCollections = () => {
         return `
           <div class="collection-item">
             <div>
-              <h4>${title}</h4>
-              <p>${subtitle}</p>
+              <h4>${escapeHtml(title)}</h4>
+              <p>${escapeHtml(subtitle)}</p>
             </div>
             <div class="item-actions">
-              <button data-action="edit" data-collection="${name}" data-id="${item.id}">DÃ¼zenle</button>
-              <button data-action="delete" data-collection="${name}" data-id="${item.id}">Sil</button>
+              <button data-action="edit" data-collection="${escapeHtml(name)}" data-id="${escapeHtml(item.id)}">Düzenle</button>
+              <button data-action="delete" data-collection="${escapeHtml(name)}" data-id="${escapeHtml(item.id)}">Sil</button>
             </div>
           </div>
         `;
@@ -238,7 +247,7 @@ const attachFormListeners = () => {
       if (!action || !collection || !id) return;
 
       if (action === "delete") {
-        const ok = confirm("Silmek istediÄŸinize emin misiniz?");
+        const ok = confirm("Silmek istediðinize emin misiniz?");
         if (!ok) return;
         try {
           await api(`/api/collection/${collection}/${id}`, { method: "DELETE" });
@@ -277,15 +286,15 @@ if (uploadForm) {
     try {
       const result = await api("/api/upload", { method: "POST", body: formData });
       uploadResult.innerHTML = `
-        <div>YÃ¼klendi. GÃ¶rsel URL:</div>
-        <code>${result.url}</code>
+        <div>Yüklendi. Görsel URL:</div>
+        <code>${escapeHtml(result.url)}</code>
         <button type="button" data-copy>URL kopyala</button>
       `;
       const copyBtn = uploadResult.querySelector("[data-copy]");
       if (copyBtn) {
         copyBtn.addEventListener("click", () => {
           navigator.clipboard.writeText(result.url);
-          copyBtn.textContent = "KopyalandÄ±";
+          copyBtn.textContent = "Kopyalandý";
         });
       }
       fileInput.value = "";
