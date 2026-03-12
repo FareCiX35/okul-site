@@ -34,7 +34,7 @@
     const res = await fetch(path, { ...options, headers });
     if (!res.ok) {
       const msg = await res.json().catch(() => ({ error: "Hata" }));
-      throw new Error(msg.error || "Ýþlem baþarýsýz");
+      throw new Error(msg.error || "ï¿½ï¿½lem baï¿½arï¿½sï¿½z");
     }
     return res.json();
   };
@@ -141,7 +141,7 @@
                 <p>${escapeHtml(subtitle)}</p>
               </div>
               <div class="item-actions">
-                <button data-action="edit" data-collection="${escapeHtml(name)}" data-id="${escapeHtml(item.id)}">Düzenle</button>
+                <button data-action="edit" data-collection="${escapeHtml(name)}" data-id="${escapeHtml(item.id)}">Dï¿½zenle</button>
                 <button data-action="delete" data-collection="${escapeHtml(name)}" data-id="${escapeHtml(item.id)}">Sil</button>
               </div>
             </div>
@@ -259,7 +259,7 @@
         if (!action || !collection || !id) return;
 
         if (action === "delete") {
-          const ok = confirm("Silmek istediðinize emin misiniz?");
+          const ok = confirm("Silmek istediï¿½inize emin misiniz?");
           if (!ok) return;
           try {
             await api(`/api/collection/${collection}/${id}`, { method: "DELETE" });
@@ -299,7 +299,7 @@
       try {
         const result = await api("/api/upload", { method: "POST", body: formData });
         uploadResult.innerHTML = `
-          <div>Yüklendi. Görsel URL:</div>
+          <div>Yï¿½klendi. Gï¿½rsel URL:</div>
           <code>${escapeHtml(result.url)}</code>
           <button type="button" data-copy>URL kopyala</button>
         `;
@@ -307,7 +307,7 @@
         if (copyBtn) {
           copyBtn.addEventListener("click", () => {
             navigator.clipboard.writeText(result.url);
-            copyBtn.textContent = "Kopyalandý";
+            copyBtn.textContent = "Kopyalandï¿½";
           });
         }
         fileInput.value = "";

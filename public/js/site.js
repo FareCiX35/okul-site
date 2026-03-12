@@ -141,7 +141,7 @@ async function loadContent() {
       <article class="card">
         <div class="card-media" style="background-image: url('${safeUrl(item.image)}')"></div>
         <div class="card-body">
-          <p class="meta">${escapeHtml(formatDate(item.date))} · ${escapeHtml(item.time || "")}</p>
+          <p class="meta">${escapeHtml(formatDate(item.date))} ï¿½ ${escapeHtml(item.time || "")}</p>
           <h3>${escapeHtml(item.title)}</h3>
           <p>${escapeHtml(item.summary)}</p>
           <p class="meta">${escapeHtml(item.location || "")}</p>
@@ -180,7 +180,7 @@ async function loadContent() {
         <div>
           <h4>${escapeHtml(item.title)}</h4>
         </div>
-        <a class="badge" href="${escapeHtml(safeUrl(item.url))}">Ýndir</a>
+        <a class="badge" href="${escapeHtml(safeUrl(item.url))}">ï¿½ndir</a>
       </div>
     `;
   });

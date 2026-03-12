@@ -34,6 +34,9 @@ const getSeed = async () => {
   return seedCache;
 };
 
+const mojibakePattern = /[\u00C3\u00C5\u00C4\u00E2\u00C2\uFFFD\u0111\u0163\u00D0\u00DE\u00DD\u00FD\u00FE]/;
+const isMojibake = (value) => mojibakePattern.test(value);
+
 const mergeWithSeed = (value, seedValue) => {
   if (seedValue === undefined) return value;
   if (Array.isArray(seedValue)) {
@@ -47,6 +50,9 @@ const mergeWithSeed = (value, seedValue) => {
       });
     }
     return result;
+  }
+  if (typeof value === "string" && typeof seedValue === "string" && isMojibake(value)) {
+    return seedValue;
   }
   return value ?? seedValue;
 };

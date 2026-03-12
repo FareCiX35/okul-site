@@ -57,10 +57,20 @@ a {
   position: sticky;
   top: 0;
   z-index: 10;
-  background: rgba(255, 255, 255, 0.84);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.84));
   backdrop-filter: blur(16px);
   border-bottom: 1px solid rgba(11, 22, 33, 0.08);
   box-shadow: 0 10px 30px rgba(7, 16, 18, 0.06);
+}
+
+.site-header::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(182, 145, 61, 0.65), transparent);
 }
 
 .header-inner {
@@ -104,13 +114,18 @@ a {
   gap: 18px;
   font-weight: 600;
   font-size: 14px;
+  padding: 6px;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(11, 22, 33, 0.1);
+  box-shadow: 0 12px 26px rgba(11, 22, 33, 0.12);
 }
 
 .nav a {
-  padding: 8px 12px;
+  padding: 8px 14px;
   border-radius: var(--radius-pill);
   position: relative;
-  transition: color 0.2s ease, background 0.2s ease;
+  transition: color 0.2s ease, background 0.2s ease, transform 0.2s ease;
 }
 
 .nav a::after {
@@ -127,6 +142,7 @@ a {
 .nav a:hover {
   color: var(--primary-strong);
   background: rgba(11, 22, 33, 0.05);
+  transform: translateY(-1px);
 }
 
 .nav a:hover::after {

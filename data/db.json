@@ -1,11 +1,11 @@
-{
+ï»¿{
   "settings": {
-    "schoolName": "Şehit Hakan Gülşen Anadolu ",
-    "tagline": "Değerlerle yükselen, çağın becerileriyle güçlenen nesiller.",
+    "schoolName": "Åehit Hakan GÃ¼lÅŸen Anadolu ",
+    "tagline": "DeÄŸerlerle yÃ¼kselen, Ã§aÄŸÄ±n becerileriyle gÃ¼Ã§lenen nesiller.",
     "logoUrl": "/assets/logo-placeholder.svg",
     "primaryColor": "#0B3A34",
     "secondaryColor": "#C9A857",
-    "address": "Örnek Mah. Eğitim Sk. No:12, Şahinbey / Gaziantep",
+    "address": "Ã–rnek Mah. EÄŸitim Sk. No:12, Åahinbey / Gaziantep",
     "phone": "+90 (342) 000 00 00",
     "email": "info@shgaihl.k12.tr",
     "mapUrl": "https://maps.google.com",
@@ -16,21 +16,21 @@
     }
   },
   "hero": {
-    "title": "Geleceği inşa eden, köklerinden güç alan okul.",
-    "subtitle": "Akademik başarı, değerler eğitimi, proje kültürü ve sosyal etkinliklerle öğrencilerimizi hayata hazırlıyoruz.",
-    "ctaPrimary": "Okulumuzu Tanıyın",
-    "ctaSecondary": "İletişime Geçin",
+    "title": "GeleceÄŸi inÅŸa eden, kÃ¶klerinden gÃ¼Ã§ alan okul.",
+    "subtitle": "Akademik baÅŸarÄ±, deÄŸerler eÄŸitimi, proje kÃ¼ltÃ¼rÃ¼ ve sosyal etkinliklerle Ã¶ÄŸrencilerimizi hayata hazÄ±rlÄ±yoruz.",
+    "ctaPrimary": "Okulumuzu TanÄ±yÄ±n",
+    "ctaSecondary": "Ä°letiÅŸime GeÃ§in",
     "heroImage": "/assets/hero-placeholder.svg"
   },
   "stats": [
     {
       "id": "stat1",
-      "label": "Öğrenci",
+      "label": "Ã–ÄŸrenci",
       "value": "650+"
     },
     {
       "id": "stat2",
-      "label": "Öğretmen",
+      "label": "Ã–ÄŸretmen",
       "value": "55"
     },
     {
@@ -40,7 +40,7 @@
     },
     {
       "id": "stat4",
-      "label": "Kulüp",
+      "label": "KulÃ¼p",
       "value": "16"
     }
   ],
@@ -69,25 +69,25 @@
   "news": [
     {
       "id": "news1",
-      "title": "Okulumuzdan Türkiye finallerinde büyük başarı",
+      "title": "Okulumuzdan TÃ¼rkiye finallerinde bÃ¼yÃ¼k baÅŸarÄ±",
       "date": "2026-03-01",
-      "summary": "Öğrencilerimiz ulusal yarışmada dereceye girdi.",
+      "summary": "Ã–ÄŸrencilerimiz ulusal yarÄ±ÅŸmada dereceye girdi.",
       "image": "/assets/news-placeholder.svg",
       "url": "#"
     },
     {
       "id": "news2",
-      "title": "Bilim şenliğimiz yoğun katılımla gerçekleşti",
+      "title": "Bilim ÅŸenliÄŸimiz yoÄŸun katÄ±lÄ±mla gerÃ§ekleÅŸti",
       "date": "2026-02-20",
-      "summary": "Disiplinler arası projelerimizi sergiledik.",
+      "summary": "Disiplinler arasÄ± projelerimizi sergiledik.",
       "image": "/assets/news-placeholder.svg",
       "url": "#"
     },
     {
       "id": "news3",
-      "title": "Mezunlarımızla Kariyer Günü",
+      "title": "MezunlarÄ±mÄ±zla Kariyer GÃ¼nÃ¼",
       "date": "2026-02-10",
-      "summary": "Mezunlarımız deneyimlerini öğrencilerimizle paylaştı.",
+      "summary": "MezunlarÄ±mÄ±z deneyimlerini Ã¶ÄŸrencilerimizle paylaÅŸtÄ±.",
       "image": "/assets/news-placeholder.svg",
       "url": "#"
     }
@@ -96,74 +96,74 @@
   "events": [
     {
       "id": "event1",
-      "title": "TÜBİTAK Proje Atölyesi",
+      "title": "TÃœBÄ°TAK Proje AtÃ¶lyesi",
       "date": "2026-03-18",
       "time": "14:00",
       "location": "Konferans Salonu",
-      "summary": "Öğrencilerimiz proje sunumlarını gerçekleştirecek.",
+      "summary": "Ã–ÄŸrencilerimiz proje sunumlarÄ±nÄ± gerÃ§ekleÅŸtirecek.",
       "image": "/assets/event-placeholder.svg"
     },
     {
       "id": "event2",
-      "title": "İftar Buluşması",
+      "title": "Ä°ftar BuluÅŸmasÄ±",
       "date": "2026-03-22",
       "time": "19:00",
-      "location": "Okul Bahçesi",
-      "summary": "Velilerimizle geleneksel iftar programı.",
+      "location": "Okul BahÃ§esi",
+      "summary": "Velilerimizle geleneksel iftar programÄ±.",
       "image": "/assets/event-placeholder.svg"
     }
   ],
   "projects": [
     {
       "id": "proj1",
-      "title": "eTwinning: Dijital Değerler",
-      "summary": "Dijital vatandaşlık ve değerler eğitimi odaklı proje.",
+      "title": "eTwinning: Dijital DeÄŸerler",
+      "summary": "Dijital vatandaÅŸlÄ±k ve deÄŸerler eÄŸitimi odaklÄ± proje.",
       "image": "/assets/project-placeholder.svg"
     },
     {
       "id": "proj2",
-      "title": "Erasmus+: Kültür Köprüleri",
-      "summary": "Avrupa ortaklıklarıyla kültürel etkileşim programı.",
+      "title": "Erasmus+: KÃ¼ltÃ¼r KÃ¶prÃ¼leri",
+      "summary": "Avrupa ortaklÄ±klarÄ±yla kÃ¼ltÃ¼rel etkileÅŸim programÄ±.",
       "image": "/assets/project-placeholder.svg"
     }
   ],
   "achievements": [
     {
       "id": "ach1",
-      "title": "YKS Başarı Oranı %92",
-      "summary": "2025-2026 döneminde öğrencilerimizin büyük kısmı üniversiteye yerleşti.",
+      "title": "YKS BaÅŸarÄ± OranÄ± %92",
+      "summary": "2025-2026 dÃ¶neminde Ã¶ÄŸrencilerimizin bÃ¼yÃ¼k kÄ±smÄ± Ã¼niversiteye yerleÅŸti.",
       "year": "2026"
     },
     {
       "id": "ach2",
-      "title": "Ulusal Münazara Şampiyonluğu",
-      "summary": "Okul takımımız Türkiye birincisi oldu.",
+      "title": "Ulusal MÃ¼nazara ÅampiyonluÄŸu",
+      "summary": "Okul takÄ±mÄ±mÄ±z TÃ¼rkiye birincisi oldu.",
       "year": "2025"
     }
   ],
   "documents": [
     {
       "id": "doc1",
-      "title": "Kayıt Evrakları Listesi",
+      "title": "KayÄ±t EvraklarÄ± Listesi",
       "url": "#"
     },
     {
       "id": "doc2",
-      "title": "Okul Tanıtım Broşürü",
+      "title": "Okul TanÄ±tÄ±m BroÅŸÃ¼rÃ¼",
       "url": "#"
     }
   ],
   "staff": [
     {
       "id": "staff1",
-      "name": "Mehmet Yılmaz",
-      "title": "Okul Müdürü",
+      "name": "Mehmet YÄ±lmaz",
+      "title": "Okul MÃ¼dÃ¼rÃ¼",
       "image": "/assets/staff-placeholder.svg"
     },
     {
       "id": "staff2",
-      "name": "Ayşe Demir",
-      "title": "Müdür Yardımcısı",
+      "name": "AyÅŸe Demir",
+      "title": "MÃ¼dÃ¼r YardÄ±mcÄ±sÄ±",
       "image": "/assets/staff-placeholder.svg"
     },
     {
@@ -176,36 +176,36 @@
   "gallery": [
     {
       "id": "gal1",
-      "title": "Bilim Şenliği",
+      "title": "Bilim ÅenliÄŸi",
       "image": "/assets/gallery-placeholder.svg"
     },
     {
       "id": "gal2",
-      "title": "Spor Turnuvası",
+      "title": "Spor TurnuvasÄ±",
       "image": "/assets/gallery-placeholder.svg"
     },
     {
       "id": "gal3",
-      "title": "Kütüphane",
+      "title": "KÃ¼tÃ¼phane",
       "image": "/assets/gallery-placeholder.svg"
     },
     {
       "id": "gal4",
-      "title": "Atölye Çalışması",
+      "title": "AtÃ¶lye Ã‡alÄ±ÅŸmasÄ±",
       "image": "/assets/gallery-placeholder.svg"
     }
   ],
   "pages": {
-    "about": "Okulumuz; akademik başarı, değerler eğitimi ve proje kültürüyle öğrencilerimizi hayata hazırlar.",
-    "history": "Kurulduğu günden bugüne bölgemizin eğitimde öncü kurumlarından biridir.",
-    "principalMessage": "Öğrencilerimizin bilgi, beceri ve değerlerle donanmış bireyler olarak yetişmesi için çalışıyoruz.",
-    "mission": "Milli ve manevi değerlerine bağlı, çağın gerektirdiği becerilere sahip bireyler yetiştirmek.",
-    "vision": "Eğitimde kalite ve güvenin adresi olmak.",
+    "about": "Okulumuz; akademik baÅŸarÄ±, deÄŸerler eÄŸitimi ve proje kÃ¼ltÃ¼rÃ¼yle Ã¶ÄŸrencilerimizi hayata hazÄ±rlar.",
+    "history": "KurulduÄŸu gÃ¼nden bugÃ¼ne bÃ¶lgemizin eÄŸitimde Ã¶ncÃ¼ kurumlarÄ±ndan biridir.",
+    "principalMessage": "Ã–ÄŸrencilerimizin bilgi, beceri ve deÄŸerlerle donanmÄ±ÅŸ bireyler olarak yetiÅŸmesi iÃ§in Ã§alÄ±ÅŸÄ±yoruz.",
+    "mission": "Milli ve manevi deÄŸerlerine baÄŸlÄ±, Ã§aÄŸÄ±n gerektirdiÄŸi becerilere sahip bireyler yetiÅŸtirmek.",
+    "vision": "EÄŸitimde kalite ve gÃ¼venin adresi olmak.",
     "values": [
       "Erdem",
       "Sorumluluk",
       "Bilimsellik",
-      "Dayanışma"
+      "DayanÄ±ÅŸma"
     ]
   }
 }
