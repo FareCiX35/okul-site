@@ -1,0 +1,240 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Şehit Gökhan Aydın Anadolu İmam Hatip Lisesi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/site.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <img id="logo" src="/assets/logo-placeholder.svg" alt="Okul logosu" />
+        <div class="brand-text">
+          <p class="brand-name" id="school-name">Şehit Gökhan Aydın Anadolu İmam Hatip Lisesi</p>
+          <p class="brand-tagline" id="school-tagline">Değerlerle yükselen, çağın becerileriyle güçlenen nesiller.</p>
+        </div>
+      </div>
+      <nav class="nav">
+        <a href="#hakkimizda">Hakkımızda</a>
+        <a href="#haberler">Haberler</a>
+        <a href="#duyurular">Duyurular</a>
+        <a href="#etkinlikler">Etkinlikler</a>
+        <a href="#projeler">Projeler</a>
+        <a href="#iletisim" class="nav-cta">İletişim</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <p class="hero-kicker">Resmî Okul Sitesi</p>
+          <h1 id="hero-title">Geleceği inşa eden, köklerinden güç alan okul.</h1>
+          <p id="hero-subtitle">Akademik başarı, değerler eğitimi, proje kültürü ve sosyal etkinliklerle öğrencilerimizi hayata hazırlıyoruz.</p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#hakkimizda" id="hero-cta-primary">Okulumuzu Tanıyın</a>
+            <a class="btn ghost" href="#iletisim" id="hero-cta-secondary">İletişime Geçin</a>
+          </div>
+          <div class="quick-links" id="quick-links"></div>
+        </div>
+        <div class="hero-media">
+          <div class="hero-image" id="hero-image" role="img" aria-label="Okul görseli"></div>
+          <div class="stats" id="stats"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="hakkimizda">
+      <div class="container about-grid">
+        <div>
+          <h2>Okulumuz Hakkında</h2>
+          <p id="about-text">Okulumuz; akademik başarı, değerler eğitimi ve proje kültürüyle öğrencilerimizi hayata hazırlar.</p>
+          <div class="about-cards">
+            <div class="card">
+              <h3>Misyon</h3>
+              <p id="mission-text"></p>
+            </div>
+            <div class="card">
+              <h3>Vizyon</h3>
+              <p id="vision-text"></p>
+            </div>
+            <div class="card">
+              <h3>Değerler</h3>
+              <div class="chips" id="values-list"></div>
+            </div>
+          </div>
+        </div>
+        <div class="about-panel">
+          <h3>Müdür Mesajı</h3>
+          <p id="principal-message"></p>
+          <div class="divider"></div>
+          <h3>Tarihçe</h3>
+          <p id="history-text"></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="haberler">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="kicker">Güncel</p>
+            <h2>Haberler</h2>
+          </div>
+          <a href="#" class="text-link">Tüm haberler</a>
+        </div>
+        <div class="grid-3" id="news-list"></div>
+      </div>
+    </section>
+
+    <section class="section" id="duyurular">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="kicker">Resmî</p>
+            <h2>Duyurular</h2>
+          </div>
+          <a href="#" class="text-link">Tüm duyurular</a>
+        </div>
+        <div class="list" id="announcements-list"></div>
+      </div>
+    </section>
+
+    <section class="section alt" id="etkinlikler">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="kicker">Takvim</p>
+            <h2>Etkinlikler</h2>
+          </div>
+          <a href="#" class="text-link">Etkinlik takvimi</a>
+        </div>
+        <div class="grid-2" id="events-list"></div>
+      </div>
+    </section>
+
+    <section class="section" id="projeler">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="kicker">Proje Kültürü</p>
+            <h2>Projeler</h2>
+          </div>
+          <a href="#" class="text-link">Tüm projeler</a>
+        </div>
+        <div class="grid-3" id="projects-list"></div>
+      </div>
+    </section>
+
+    <section class="section alt" id="basarilar">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="kicker">Başarı</p>
+            <h2>Akademik ve Sosyal Başarılar</h2>
+          </div>
+        </div>
+        <div class="grid-3" id="achievements-list"></div>
+      </div>
+    </section>
+
+    <section class="section" id="belgeler">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="kicker">Dokümanlar</p>
+            <h2>Belgeler</h2>
+          </div>
+        </div>
+        <div class="list" id="documents-list"></div>
+      </div>
+    </section>
+
+    <section class="section alt" id="kadro">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="kicker">Kadromuz</p>
+            <h2>Yönetim ve Rehberlik</h2>
+          </div>
+        </div>
+        <div class="grid-3" id="staff-list"></div>
+      </div>
+    </section>
+
+    <section class="section" id="galeri">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="kicker">Yaşam</p>
+            <h2>Fotoğraf Galerisi</h2>
+          </div>
+        </div>
+        <div class="gallery" id="gallery-list"></div>
+      </div>
+    </section>
+
+    <section class="section alt" id="iletisim">
+      <div class="container contact-grid">
+        <div>
+          <p class="kicker">Bize Ulaşın</p>
+          <h2>İletişim</h2>
+          <p class="contact-text">Sorularınız için bizimle iletişime geçebilirsiniz.</p>
+          <div class="contact-card">
+            <div>
+              <p class="label">Adres</p>
+              <p id="contact-address"></p>
+            </div>
+            <div>
+              <p class="label">Telefon</p>
+              <p id="contact-phone"></p>
+            </div>
+            <div>
+              <p class="label">E-posta</p>
+              <p id="contact-email"></p>
+            </div>
+            <div class="social" id="social-links"></div>
+          </div>
+        </div>
+        <div class="map">
+          <iframe id="map-frame" title="Okul haritası" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <p class="brand-name" id="footer-school-name"></p>
+        <p class="footer-text">Resmî web sitesi • Güncel haberler, duyurular ve etkinlikler.</p>
+      </div>
+      <div>
+        <p class="footer-title">Hızlı Erişim</p>
+        <div class="footer-links">
+          <a href="#haberler">Haberler</a>
+          <a href="#duyurular">Duyurular</a>
+          <a href="#etkinlikler">Etkinlikler</a>
+          <a href="#belgeler">Belgeler</a>
+        </div>
+      </div>
+      <div>
+        <p class="footer-title">Yönetim</p>
+        <div class="footer-links">
+          <a href="/admin.html">Yönetim Paneli</a>
+          <a href="#iletisim">İletişim</a>
+        </div>
+      </div>
+    </div>
+    <p class="footer-bottom">© 2026 Tüm hakları saklıdır.</p>
+  </footer>
+
+  <script src="/js/site.js"></script>
+</body>
+</html>

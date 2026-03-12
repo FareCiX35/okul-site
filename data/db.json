@@ -1,0 +1,211 @@
+{
+  "settings": {
+    "schoolName": "Şehit Hakan Gülşen Anadolu ",
+    "tagline": "Değerlerle yükselen, çağın becerileriyle güçlenen nesiller.",
+    "logoUrl": "/assets/logo-placeholder.svg",
+    "primaryColor": "#0B3A34",
+    "secondaryColor": "#C9A857",
+    "address": "Örnek Mah. Eğitim Sk. No:12, Şahinbey / Gaziantep",
+    "phone": "+90 (342) 000 00 00",
+    "email": "info@shgaihl.k12.tr",
+    "mapUrl": "https://maps.google.com",
+    "social": {
+      "instagram": "https://instagram.com/",
+      "youtube": "https://youtube.com/",
+      "x": "https://x.com/"
+    }
+  },
+  "hero": {
+    "title": "Geleceği inşa eden, köklerinden güç alan okul.",
+    "subtitle": "Akademik başarı, değerler eğitimi, proje kültürü ve sosyal etkinliklerle öğrencilerimizi hayata hazırlıyoruz.",
+    "ctaPrimary": "Okulumuzu Tanıyın",
+    "ctaSecondary": "İletişime Geçin",
+    "heroImage": "/assets/hero-placeholder.svg"
+  },
+  "stats": [
+    {
+      "id": "stat1",
+      "label": "Öğrenci",
+      "value": "650+"
+    },
+    {
+      "id": "stat2",
+      "label": "Öğretmen",
+      "value": "55"
+    },
+    {
+      "id": "stat3",
+      "label": "Proje",
+      "value": "28"
+    },
+    {
+      "id": "stat4",
+      "label": "Kulüp",
+      "value": "16"
+    }
+  ],
+  "quickLinks": [
+    {
+      "id": "link1",
+      "title": "Duyurular",
+      "url": "#duyurular"
+    },
+    {
+      "id": "link2",
+      "title": "Etkinlik Takvimi",
+      "url": "#etkinlikler"
+    },
+    {
+      "id": "link3",
+      "title": "Projeler",
+      "url": "#projeler"
+    },
+    {
+      "id": "link4",
+      "title": "Belgeler",
+      "url": "#belgeler"
+    }
+  ],
+  "news": [
+    {
+      "id": "news1",
+      "title": "Okulumuzdan Türkiye finallerinde büyük başarı",
+      "date": "2026-03-01",
+      "summary": "Öğrencilerimiz ulusal yarışmada dereceye girdi.",
+      "image": "/assets/news-placeholder.svg",
+      "url": "#"
+    },
+    {
+      "id": "news2",
+      "title": "Bilim şenliğimiz yoğun katılımla gerçekleşti",
+      "date": "2026-02-20",
+      "summary": "Disiplinler arası projelerimizi sergiledik.",
+      "image": "/assets/news-placeholder.svg",
+      "url": "#"
+    },
+    {
+      "id": "news3",
+      "title": "Mezunlarımızla Kariyer Günü",
+      "date": "2026-02-10",
+      "summary": "Mezunlarımız deneyimlerini öğrencilerimizle paylaştı.",
+      "image": "/assets/news-placeholder.svg",
+      "url": "#"
+    }
+  ],
+  "announcements": [],
+  "events": [
+    {
+      "id": "event1",
+      "title": "TÜBİTAK Proje Atölyesi",
+      "date": "2026-03-18",
+      "time": "14:00",
+      "location": "Konferans Salonu",
+      "summary": "Öğrencilerimiz proje sunumlarını gerçekleştirecek.",
+      "image": "/assets/event-placeholder.svg"
+    },
+    {
+      "id": "event2",
+      "title": "İftar Buluşması",
+      "date": "2026-03-22",
+      "time": "19:00",
+      "location": "Okul Bahçesi",
+      "summary": "Velilerimizle geleneksel iftar programı.",
+      "image": "/assets/event-placeholder.svg"
+    }
+  ],
+  "projects": [
+    {
+      "id": "proj1",
+      "title": "eTwinning: Dijital Değerler",
+      "summary": "Dijital vatandaşlık ve değerler eğitimi odaklı proje.",
+      "image": "/assets/project-placeholder.svg"
+    },
+    {
+      "id": "proj2",
+      "title": "Erasmus+: Kültür Köprüleri",
+      "summary": "Avrupa ortaklıklarıyla kültürel etkileşim programı.",
+      "image": "/assets/project-placeholder.svg"
+    }
+  ],
+  "achievements": [
+    {
+      "id": "ach1",
+      "title": "YKS Başarı Oranı %92",
+      "summary": "2025-2026 döneminde öğrencilerimizin büyük kısmı üniversiteye yerleşti.",
+      "year": "2026"
+    },
+    {
+      "id": "ach2",
+      "title": "Ulusal Münazara Şampiyonluğu",
+      "summary": "Okul takımımız Türkiye birincisi oldu.",
+      "year": "2025"
+    }
+  ],
+  "documents": [
+    {
+      "id": "doc1",
+      "title": "Kayıt Evrakları Listesi",
+      "url": "#"
+    },
+    {
+      "id": "doc2",
+      "title": "Okul Tanıtım Broşürü",
+      "url": "#"
+    }
+  ],
+  "staff": [
+    {
+      "id": "staff1",
+      "name": "Mehmet Yılmaz",
+      "title": "Okul Müdürü",
+      "image": "/assets/staff-placeholder.svg"
+    },
+    {
+      "id": "staff2",
+      "name": "Ayşe Demir",
+      "title": "Müdür Yardımcısı",
+      "image": "/assets/staff-placeholder.svg"
+    },
+    {
+      "id": "staff3",
+      "name": "Hasan Kurt",
+      "title": "Rehberlik Servisi",
+      "image": "/assets/staff-placeholder.svg"
+    }
+  ],
+  "gallery": [
+    {
+      "id": "gal1",
+      "title": "Bilim Şenliği",
+      "image": "/assets/gallery-placeholder.svg"
+    },
+    {
+      "id": "gal2",
+      "title": "Spor Turnuvası",
+      "image": "/assets/gallery-placeholder.svg"
+    },
+    {
+      "id": "gal3",
+      "title": "Kütüphane",
+      "image": "/assets/gallery-placeholder.svg"
+    },
+    {
+      "id": "gal4",
+      "title": "Atölye Çalışması",
+      "image": "/assets/gallery-placeholder.svg"
+    }
+  ],
+  "pages": {
+    "about": "Okulumuz; akademik başarı, değerler eğitimi ve proje kültürüyle öğrencilerimizi hayata hazırlar.",
+    "history": "Kurulduğu günden bugüne bölgemizin eğitimde öncü kurumlarından biridir.",
+    "principalMessage": "Öğrencilerimizin bilgi, beceri ve değerlerle donanmış bireyler olarak yetişmesi için çalışıyoruz.",
+    "mission": "Milli ve manevi değerlerine bağlı, çağın gerektirdiği becerilere sahip bireyler yetiştirmek.",
+    "vision": "Eğitimde kalite ve güvenin adresi olmak.",
+    "values": [
+      "Erdem",
+      "Sorumluluk",
+      "Bilimsellik",
+      "Dayanışma"
+    ]
+  }
+}

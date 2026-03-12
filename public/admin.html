@@ -1,0 +1,231 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yönetim Paneli</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/admin.css" />
+</head>
+<body>
+  <div class="admin-shell">
+    <aside class="sidebar">
+      <h1>Yönetim Paneli</h1>
+      <p class="sidebar-note">İçerikleri güncelleyin, etkinlik ekleyin.</p>
+      <nav>
+        <a href="#medya">Medya</a>
+        <a href="#genel">Genel</a>
+        <a href="#hero">Manşet</a>
+        <a href="#sayfalar">Sayfalar</a>
+        <a href="#haberler">Haberler</a>
+        <a href="#duyurular">Duyurular</a>
+        <a href="#etkinlikler">Etkinlikler</a>
+        <a href="#projeler">Projeler</a>
+        <a href="#basarilar">Başarılar</a>
+        <a href="#belgeler">Belgeler</a>
+        <a href="#kadro">Kadromuz</a>
+        <a href="#galeri">Galeri</a>
+      </nav>
+      <button class="ghost" id="logout">Çıkış</button>
+    </aside>
+
+    <main class="content">
+      <section class="card login" id="login-card">
+        <h2>Giriş</h2>
+        <p>Yönetim paneline erişmek için şifre girin.</p>
+        <form id="login-form">
+          <input type="password" id="password" placeholder="Şifre" required />
+          <button type="submit">Giriş</button>
+        </form>
+        <p class="hint">Varsayılan şifre: admin123 (değiştirilebilir)</p>
+      </section>
+
+      <section class="panel" id="panel" hidden>
+        <div class="panel-header">
+          <h2>İçerik Yönetimi</h2>
+          <p>Değişiklikler kaydedildikten sonra ana sayfaya yansır.</p>
+        </div>
+
+        <section class="panel-card" id="medya">
+          <h3>Medya Yükle</h3>
+          <form id="upload-form" class="upload-form">
+            <input type="file" name="image" accept="image/*" required />
+            <button type="submit">Yükle</button>
+          </form>
+          <div class="upload-result" id="upload-result"></div>
+        </section>
+
+        <section class="panel-card" id="genel">
+          <h3>Genel Ayarlar</h3>
+          <form data-section="settings" class="grid-form">
+            <label>Okul Adı<input name="schoolName" required /></label>
+            <label>Tagline<input name="tagline" /></label>
+            <label>Logo URL<input name="logoUrl" /></label>
+            <label>Adres<input name="address" /></label>
+            <label>Telefon<input name="phone" /></label>
+            <label>E-posta<input name="email" /></label>
+            <label>Harita URL<input name="mapUrl" /></label>
+            <label>Instagram URL<input name="instagram" /></label>
+            <label>YouTube URL<input name="youtube" /></label>
+            <label>X URL<input name="x" /></label>
+            <button type="submit">Kaydet</button>
+          </form>
+        </section>
+
+        <section class="panel-card" id="hero">
+          <h3>Manşet Alanı</h3>
+          <form data-section="hero" class="grid-form">
+            <label>Başlık<input name="title" required /></label>
+            <label>Alt Başlık<input name="subtitle" required /></label>
+            <label>CTA Birinci<input name="ctaPrimary" /></label>
+            <label>CTA İkinci<input name="ctaSecondary" /></label>
+            <label>Görsel URL<input name="heroImage" /></label>
+            <button type="submit">Kaydet</button>
+          </form>
+        </section>
+
+        <section class="panel-card" id="sayfalar">
+          <h3>Kurumsal Sayfalar</h3>
+          <form data-section="pages" class="grid-form">
+            <label>Hakkımızda<textarea name="about" rows="4"></textarea></label>
+            <label>Tarihçe<textarea name="history" rows="4"></textarea></label>
+            <label>Müdür Mesajı<textarea name="principalMessage" rows="4"></textarea></label>
+            <label>Misyon<textarea name="mission" rows="4"></textarea></label>
+            <label>Vizyon<textarea name="vision" rows="4"></textarea></label>
+            <label>Değerler (virgülle)<input name="values" /></label>
+            <button type="submit">Kaydet</button>
+          </form>
+        </section>
+
+        <section class="panel-card" id="haberler">
+          <h3>Haberler</h3>
+          <form data-collection="news" class="collection-form">
+            <input type="hidden" name="id" />
+            <label>Başlık<input name="title" required /></label>
+            <label>Tarih<input name="date" type="date" required /></label>
+            <label>Özet<textarea name="summary" rows="3"></textarea></label>
+            <label>Görsel URL<input name="image" /></label>
+            <label>Link<input name="url" /></label>
+            <div class="form-actions">
+              <button type="submit">Kaydet</button>
+              <button type="button" class="ghost" data-reset>Formu Temizle</button>
+            </div>
+          </form>
+          <div class="collection-list" data-list="news"></div>
+        </section>
+
+        <section class="panel-card" id="duyurular">
+          <h3>Duyurular</h3>
+          <form data-collection="announcements" class="collection-form">
+            <input type="hidden" name="id" />
+            <label>Başlık<input name="title" required /></label>
+            <label>Tarih<input name="date" type="date" required /></label>
+            <label>Özet<textarea name="summary" rows="3"></textarea></label>
+            <label>Link<input name="url" /></label>
+            <div class="form-actions">
+              <button type="submit">Kaydet</button>
+              <button type="button" class="ghost" data-reset>Formu Temizle</button>
+            </div>
+          </form>
+          <div class="collection-list" data-list="announcements"></div>
+        </section>
+
+        <section class="panel-card" id="etkinlikler">
+          <h3>Etkinlikler</h3>
+          <form data-collection="events" class="collection-form">
+            <input type="hidden" name="id" />
+            <label>Başlık<input name="title" required /></label>
+            <label>Tarih<input name="date" type="date" required /></label>
+            <label>Saat<input name="time" /></label>
+            <label>Yer<input name="location" /></label>
+            <label>Özet<textarea name="summary" rows="3"></textarea></label>
+            <label>Görsel URL<input name="image" /></label>
+            <div class="form-actions">
+              <button type="submit">Kaydet</button>
+              <button type="button" class="ghost" data-reset>Formu Temizle</button>
+            </div>
+          </form>
+          <div class="collection-list" data-list="events"></div>
+        </section>
+
+        <section class="panel-card" id="projeler">
+          <h3>Projeler</h3>
+          <form data-collection="projects" class="collection-form">
+            <input type="hidden" name="id" />
+            <label>Başlık<input name="title" required /></label>
+            <label>Özet<textarea name="summary" rows="3"></textarea></label>
+            <label>Görsel URL<input name="image" /></label>
+            <div class="form-actions">
+              <button type="submit">Kaydet</button>
+              <button type="button" class="ghost" data-reset>Formu Temizle</button>
+            </div>
+          </form>
+          <div class="collection-list" data-list="projects"></div>
+        </section>
+
+        <section class="panel-card" id="basarilar">
+          <h3>Başarılar</h3>
+          <form data-collection="achievements" class="collection-form">
+            <input type="hidden" name="id" />
+            <label>Başlık<input name="title" required /></label>
+            <label>Yıl<input name="year" required /></label>
+            <label>Özet<textarea name="summary" rows="3"></textarea></label>
+            <div class="form-actions">
+              <button type="submit">Kaydet</button>
+              <button type="button" class="ghost" data-reset>Formu Temizle</button>
+            </div>
+          </form>
+          <div class="collection-list" data-list="achievements"></div>
+        </section>
+
+        <section class="panel-card" id="belgeler">
+          <h3>Belgeler</h3>
+          <form data-collection="documents" class="collection-form">
+            <input type="hidden" name="id" />
+            <label>Başlık<input name="title" required /></label>
+            <label>Dosya URL<input name="url" /></label>
+            <div class="form-actions">
+              <button type="submit">Kaydet</button>
+              <button type="button" class="ghost" data-reset>Formu Temizle</button>
+            </div>
+          </form>
+          <div class="collection-list" data-list="documents"></div>
+        </section>
+
+        <section class="panel-card" id="kadro">
+          <h3>Kadro</h3>
+          <form data-collection="staff" class="collection-form">
+            <input type="hidden" name="id" />
+            <label>Ad Soyad<input name="name" required /></label>
+            <label>Unvan<input name="title" required /></label>
+            <label>Görsel URL<input name="image" /></label>
+            <div class="form-actions">
+              <button type="submit">Kaydet</button>
+              <button type="button" class="ghost" data-reset>Formu Temizle</button>
+            </div>
+          </form>
+          <div class="collection-list" data-list="staff"></div>
+        </section>
+
+        <section class="panel-card" id="galeri">
+          <h3>Galeri</h3>
+          <form data-collection="gallery" class="collection-form">
+            <input type="hidden" name="id" />
+            <label>Başlık<input name="title" required /></label>
+            <label>Görsel URL<input name="image" /></label>
+            <div class="form-actions">
+              <button type="submit">Kaydet</button>
+              <button type="button" class="ghost" data-reset>Formu Temizle</button>
+            </div>
+          </form>
+          <div class="collection-list" data-list="gallery"></div>
+        </section>
+      </section>
+    </main>
+  </div>
+
+  <script src="/js/admin.js"></script>
+</body>
+</html>
