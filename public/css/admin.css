@@ -1,17 +1,17 @@
-:root {
-  --bg: #f5f3ef;
+﻿:root {
+  --bg: #eef2f6;
   --bg-strong: #ffffff;
-  --ink: #0b1621;
-  --muted: #4a5963;
-  --primary: #0b2438;
-  --primary-strong: #113b58;
-  --accent: #b6913d;
+  --ink: #0c1c2b;
+  --muted: #4b5b6b;
+  --primary: #0c1c2b;
+  --primary-strong: #12324b;
+  --accent: #c99a2e;
   --card: #ffffff;
-  --border: rgba(11, 22, 33, 0.12);
-  --shadow: 0 22px 50px rgba(7, 16, 18, 0.12);
+  --border: rgba(12, 28, 43, 0.12);
+  --shadow: 0 22px 50px rgba(12, 28, 43, 0.12);
   --radius: 18px;
-  --heading: "Cormorant Garamond", serif;
-  --body: "Sora", sans-serif;
+  --heading: "Fraunces", serif;
+  --body: "Space Grotesk", sans-serif;
 }
 
 * {
@@ -23,7 +23,7 @@
 body {
   font-family: var(--body);
   background-image:
-    radial-gradient(circle at 15% 10%, rgba(182, 145, 61, 0.18), transparent 45%),
+    radial-gradient(circle at 15% 10%, rgba(201, 154, 46, 0.18), transparent 45%),
     linear-gradient(180deg, #ffffff 0%, var(--bg) 70%);
   color: var(--ink);
 }
@@ -35,13 +35,13 @@ body {
 }
 
 .sidebar {
-  background: linear-gradient(160deg, #0b2438, #113b58);
+  background: linear-gradient(160deg, #0c1c2b, #12324b);
   color: #fff;
   padding: 28px 22px;
   display: flex;
   flex-direction: column;
   gap: 18px;
-  box-shadow: 0 16px 40px rgba(7, 16, 18, 0.2);
+  box-shadow: 0 16px 40px rgba(12, 28, 43, 0.2);
 }
 
 .sidebar h1 {
@@ -171,7 +171,7 @@ body {
 }
 
 .upload-result code {
-  background: rgba(13, 27, 30, 0.06);
+  background: rgba(12, 28, 43, 0.06);
   padding: 6px 8px;
   border-radius: 8px;
   display: inline-block;
@@ -215,8 +215,8 @@ body {
 .grid-form textarea:focus,
 .collection-form input:focus,
 .collection-form textarea:focus {
-  outline: 2px solid rgba(182, 145, 61, 0.3);
-  border-color: rgba(182, 145, 61, 0.4);
+  outline: 2px solid rgba(201, 154, 46, 0.3);
+  border-color: rgba(201, 154, 46, 0.4);
 }
 
 .grid-form button,

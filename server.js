@@ -98,6 +98,10 @@ const upload = multer({
   limits: { fileSize: 8 * 1024 * 1024 }
 });
 
+const ensureUploadsDir = async () => {
+  await fs.mkdir(uploadsDir, { recursive: true });
+};
+
 app.disable("x-powered-by");
 app.use(express.json({ limit: "2mb" }));
 app.use((req, res, next) => {
@@ -319,7 +323,15 @@ app.post("/api/upload", upload.single("image"), asyncHandler(async (req, res) =>
     });
 
   if (error) {
-    throw error;
+    console.error("Supabase upload failed, falling back to local storage:", error);
+    try {
+      await ensureUploadsDir();
+      await fs.writeFile(path.join(uploadsDir, filename), req.file.buffer);
+      return res.status(201).json({ url: `/uploads/${filename}` });
+    } catch (localErr) {
+      console.error("Local upload fallback failed:", localErr);
+      return res.status(502).json({ error: "Depolama hatası: Yükleme yapılamadı." });
+    }
   }
 
   const { data } = supabase.storage.from(supabaseBucket).getPublicUrl(filePath);
