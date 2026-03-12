@@ -1,17 +1,17 @@
 :root {
   color-scheme: light;
-  --bg: #f6f3ee;
+  --bg: #f5f3ef;
   --bg-alt: #ffffff;
-  --ink: #0d1b1e;
-  --muted: #4c5a60;
-  --primary: #0b2f2e;
-  --primary-strong: #114342;
-  --accent: #c8a25a;
-  --accent-strong: #b78c3a;
+  --ink: #0b1621;
+  --muted: #4a5963;
+  --primary: #0b2438;
+  --primary-strong: #113b58;
+  --accent: #b6913d;
+  --accent-strong: #a57a2a;
   --surface: #ffffff;
-  --surface-tint: #fdfbf7;
-  --border: rgba(13, 27, 30, 0.12);
-  --border-strong: rgba(13, 27, 30, 0.22);
+  --surface-tint: #fbfaf7;
+  --border: rgba(11, 22, 33, 0.12);
+  --border-strong: rgba(11, 22, 33, 0.22);
   --shadow: 0 28px 70px rgba(7, 16, 18, 0.18);
   --shadow-soft: 0 16px 36px rgba(7, 16, 18, 0.1);
   --radius-lg: 26px;
@@ -31,9 +31,9 @@ body {
   font-family: var(--body);
   color: var(--ink);
   background-image:
-    radial-gradient(circle at 12% 12%, rgba(200, 162, 90, 0.22), transparent 40%),
-    radial-gradient(circle at 85% 18%, rgba(17, 67, 66, 0.2), transparent 35%),
-    linear-gradient(180deg, #ffffff 0%, #f6f3ee 65%, #f1ede6 100%);
+    radial-gradient(circle at 12% 12%, rgba(182, 145, 61, 0.18), transparent 40%),
+    radial-gradient(circle at 85% 18%, rgba(17, 59, 88, 0.18), transparent 35%),
+    linear-gradient(180deg, #ffffff 0%, #f5f3ef 65%, #f0ece5 100%);
   line-height: 1.65;
   letter-spacing: 0.1px;
 }
@@ -59,7 +59,7 @@ a {
   z-index: 10;
   background: rgba(255, 255, 255, 0.84);
   backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(13, 27, 30, 0.08);
+  border-bottom: 1px solid rgba(11, 22, 33, 0.08);
   box-shadow: 0 10px 30px rgba(7, 16, 18, 0.06);
 }
 
@@ -81,10 +81,10 @@ a {
   width: 56px;
   height: 56px;
   border-radius: 50%;
-  border: 1px solid rgba(200, 162, 90, 0.6);
+  border: 1px solid rgba(182, 145, 61, 0.6);
   padding: 8px;
   background: var(--surface);
-  box-shadow: inset 0 0 0 1px rgba(13, 27, 30, 0.04);
+  box-shadow: inset 0 0 0 1px rgba(11, 22, 33, 0.04);
 }
 
 .brand-name {
@@ -126,17 +126,17 @@ a {
 
 .nav a:hover {
   color: var(--primary-strong);
-  background: rgba(13, 27, 30, 0.05);
+  background: rgba(11, 22, 33, 0.05);
 }
 
 .nav a:hover::after {
-  background: rgba(13, 27, 30, 0.2);
+  background: rgba(11, 22, 33, 0.2);
 }
 
 .nav-cta {
   background: linear-gradient(135deg, var(--primary), var(--primary-strong));
   color: #fff;
-  box-shadow: 0 16px 28px rgba(11, 47, 46, 0.25);
+  box-shadow: 0 16px 28px rgba(11, 36, 56, 0.25);
 }
 
 .nav-cta:hover {
@@ -200,11 +200,11 @@ a {
 .btn.primary {
   background: linear-gradient(135deg, var(--primary), var(--primary-strong));
   color: #fff;
-  box-shadow: 0 14px 30px rgba(11, 47, 46, 0.3);
+  box-shadow: 0 14px 30px rgba(11, 36, 56, 0.28);
 }
 
 .btn.ghost {
-  border: 1px solid rgba(13, 27, 30, 0.25);
+  border: 1px solid rgba(11, 22, 33, 0.25);
   color: var(--primary);
   background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(8px);
@@ -224,7 +224,7 @@ a {
   padding: 8px 16px;
   border-radius: var(--radius-pill);
   background: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(13, 27, 30, 0.12);
+  border: 1px solid rgba(11, 22, 33, 0.12);
   font-size: 13px;
   font-weight: 600;
   box-shadow: 0 12px 22px rgba(7, 16, 18, 0.06);
@@ -251,7 +251,7 @@ a {
   inset: -20% -10% auto auto;
   width: 240px;
   height: 240px;
-  background: radial-gradient(circle, rgba(200, 162, 90, 0.45), transparent 70%);
+  background: radial-gradient(circle, rgba(182, 145, 61, 0.45), transparent 70%);
   pointer-events: none;
 }
 
@@ -259,7 +259,7 @@ a {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(13, 27, 30, 0.05), rgba(13, 27, 30, 0.65));
+  background: linear-gradient(180deg, rgba(11, 22, 33, 0.05), rgba(11, 22, 33, 0.65));
 }
 
 .stats {
@@ -273,7 +273,7 @@ a {
   border-radius: 16px;
   padding: 16px 14px;
   text-align: center;
-  border: 1px solid rgba(13, 27, 30, 0.12);
+  border: 1px solid rgba(11, 22, 33, 0.12);
   box-shadow: var(--shadow-soft);
 }
 
@@ -342,7 +342,7 @@ a {
   background: var(--surface);
   border-radius: var(--radius-md);
   padding: 22px;
-  border: 1px solid rgba(13, 27, 30, 0.1);
+  border: 1px solid rgba(11, 22, 33, 0.1);
   box-shadow: var(--shadow-soft);
   position: relative;
   overflow: hidden;
@@ -352,13 +352,13 @@ a {
   content: "";
   position: absolute;
   inset: 0;
-  border: 1px solid rgba(200, 162, 90, 0.18);
+  border: 1px solid rgba(182, 145, 61, 0.18);
   border-radius: inherit;
   pointer-events: none;
 }
 
 .about-panel {
-  background: linear-gradient(135deg, #0d3231, #11403f);
+  background: linear-gradient(135deg, #0b2438, #113b58);
   color: #fff;
   border-radius: var(--radius-lg);
   padding: 30px;
@@ -390,7 +390,7 @@ a {
 .chip {
   padding: 6px 12px;
   border-radius: var(--radius-pill);
-  background: rgba(200, 162, 90, 0.2);
+  background: rgba(182, 145, 61, 0.2);
   color: var(--primary);
   font-size: 12px;
   font-weight: 600;
@@ -449,7 +449,7 @@ a {
   padding: 16px 20px;
   background: rgba(255, 255, 255, 0.9);
   border-radius: 14px;
-  border: 1px solid rgba(13, 27, 30, 0.1);
+  border: 1px solid rgba(11, 22, 33, 0.1);
   box-shadow: var(--shadow-soft);
 }
 
@@ -465,7 +465,7 @@ a {
 }
 
 .badge {
-  background: rgba(11, 47, 46, 0.12);
+  background: rgba(11, 36, 56, 0.12);
   color: var(--primary);
   font-weight: 600;
   padding: 6px 14px;
@@ -492,7 +492,7 @@ a {
 .gallery-item span {
   position: absolute;
   inset: auto 12px 12px 12px;
-  background: rgba(13, 27, 30, 0.75);
+  background: rgba(11, 22, 33, 0.75);
   color: #fff;
   padding: 8px 12px;
   border-radius: 12px;
@@ -513,7 +513,7 @@ a {
   background: rgba(255, 255, 255, 0.9);
   padding: 26px;
   border-radius: var(--radius-md);
-  border: 1px solid rgba(13, 27, 30, 0.1);
+  border: 1px solid rgba(11, 22, 33, 0.1);
   box-shadow: var(--shadow-soft);
 }
 
@@ -534,7 +534,7 @@ a {
 .social a {
   padding: 8px 14px;
   border-radius: var(--radius-pill);
-  background: rgba(200, 162, 90, 0.2);
+  background: rgba(182, 145, 61, 0.2);
   font-weight: 600;
 }
 
@@ -542,7 +542,7 @@ a {
   border-radius: var(--radius-lg);
   overflow: hidden;
   min-height: 360px;
-  border: 1px solid rgba(13, 27, 30, 0.12);
+  border: 1px solid rgba(11, 22, 33, 0.12);
   box-shadow: var(--shadow-soft);
 }
 
@@ -553,7 +553,7 @@ a {
 }
 
 .site-footer {
-  background: linear-gradient(135deg, #0b2f2e, #0f3c3a);
+  background: linear-gradient(135deg, #0b2438, #113b58);
   color: rgba(255, 255, 255, 0.9);
   padding: 46px 0 22px;
 }

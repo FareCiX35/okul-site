@@ -1,13 +1,13 @@
 :root {
-  --bg: #f4f1ec;
+  --bg: #f5f3ef;
   --bg-strong: #ffffff;
-  --ink: #0d1b1e;
-  --muted: #4c5a60;
-  --primary: #0b2f2e;
-  --primary-strong: #114342;
-  --accent: #c8a25a;
+  --ink: #0b1621;
+  --muted: #4a5963;
+  --primary: #0b2438;
+  --primary-strong: #113b58;
+  --accent: #b6913d;
   --card: #ffffff;
-  --border: rgba(13, 27, 30, 0.12);
+  --border: rgba(11, 22, 33, 0.12);
   --shadow: 0 22px 50px rgba(7, 16, 18, 0.12);
   --radius: 18px;
   --heading: "Cormorant Garamond", serif;
@@ -23,7 +23,7 @@
 body {
   font-family: var(--body);
   background-image:
-    radial-gradient(circle at 15% 10%, rgba(200, 162, 90, 0.18), transparent 45%),
+    radial-gradient(circle at 15% 10%, rgba(182, 145, 61, 0.18), transparent 45%),
     linear-gradient(180deg, #ffffff 0%, var(--bg) 70%);
   color: var(--ink);
 }
@@ -35,7 +35,7 @@ body {
 }
 
 .sidebar {
-  background: linear-gradient(160deg, #0b2f2e, #0f3c3a);
+  background: linear-gradient(160deg, #0b2438, #113b58);
   color: #fff;
   padding: 28px 22px;
   display: flex;
@@ -215,8 +215,8 @@ body {
 .grid-form textarea:focus,
 .collection-form input:focus,
 .collection-form textarea:focus {
-  outline: 2px solid rgba(200, 162, 90, 0.3);
-  border-color: rgba(200, 162, 90, 0.4);
+  outline: 2px solid rgba(182, 145, 61, 0.3);
+  border-color: rgba(182, 145, 61, 0.4);
 }
 
 .grid-form button,

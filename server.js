@@ -25,6 +25,32 @@ const supabase = supabaseUrl && supabaseKey
   ? createClient(supabaseUrl, supabaseKey, { auth: { persistSession: false } })
   : null;
 
+let seedCache = null;
+const isPlainObject = (value) => value && typeof value === "object" && !Array.isArray(value);
+const getSeed = async () => {
+  if (seedCache) return seedCache;
+  const raw = await fs.readFile(dataPath, "utf8");
+  seedCache = JSON.parse(raw);
+  return seedCache;
+};
+
+const mergeWithSeed = (value, seedValue) => {
+  if (seedValue === undefined) return value;
+  if (Array.isArray(seedValue)) {
+    return Array.isArray(value) ? value : seedValue;
+  }
+  if (isPlainObject(seedValue)) {
+    const result = { ...seedValue };
+    if (isPlainObject(value)) {
+      Object.entries(value).forEach(([key, next]) => {
+        result[key] = mergeWithSeed(next, seedValue[key]);
+      });
+    }
+    return result;
+  }
+  return value ?? seedValue;
+};
+
 const storage = supabase
   ? multer.memoryStorage()
   : multer.diskStorage({
@@ -72,8 +98,10 @@ app.use(express.static(path.join(__dirname, "public"), {
 
 async function readDb() {
   if (!supabase) {
+    const seed = await getSeed();
     const raw = await fs.readFile(dataPath, "utf8");
-    return JSON.parse(raw);
+    const data = JSON.parse(raw);
+    return mergeWithSeed(data, seed);
   }
 
   const { data, error } = await supabase
@@ -87,8 +115,7 @@ async function readDb() {
   }
 
   if (!data) {
-    const raw = await fs.readFile(dataPath, "utf8");
-    const seed = JSON.parse(raw);
+    const seed = await getSeed();
     const { error: upsertError } = await supabase
       .from("site_content")
       .upsert({ id: 1, data: seed });
@@ -98,7 +125,8 @@ async function readDb() {
     return seed;
   }
 
-  return data.data;
+  const seed = await getSeed();
+  return mergeWithSeed(data.data, seed);
 }
 
 async function writeDb(data) {

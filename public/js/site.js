@@ -57,26 +57,32 @@ const renderCards = (container, items, template) => {
 
 async function loadContent() {
   const res = await fetch("/api/content");
+  if (!res.ok) return;
   const data = await res.json();
+  if (!data) return;
+  const settings = data.settings || {};
+  const hero = data.hero || {};
+  const pages = data.pages || {};
+  const social = settings.social || {};
 
-  setText("school-name", data.settings.schoolName);
-  setText("school-tagline", data.settings.tagline);
-  setText("footer-school-name", data.settings.schoolName);
+  setText("school-name", settings.schoolName);
+  setText("school-tagline", settings.tagline);
+  setText("footer-school-name", settings.schoolName);
 
   const logo = document.getElementById("logo");
-  if (logo && data.settings.logoUrl) {
-    const src = safeUrl(data.settings.logoUrl);
+  if (logo && settings.logoUrl) {
+    const src = safeUrl(settings.logoUrl);
     if (src) logo.src = src;
   }
 
-  setText("hero-title", data.hero.title);
-  setText("hero-subtitle", data.hero.subtitle);
-  setText("hero-cta-primary", data.hero.ctaPrimary);
-  setText("hero-cta-secondary", data.hero.ctaSecondary);
+  setText("hero-title", hero.title);
+  setText("hero-subtitle", hero.subtitle);
+  setText("hero-cta-primary", hero.ctaPrimary);
+  setText("hero-cta-secondary", hero.ctaSecondary);
 
   const heroImage = document.getElementById("hero-image");
   if (heroImage) {
-    const imageUrl = safeUrl(data.hero.heroImage);
+    const imageUrl = safeUrl(hero.heroImage);
     heroImage.style.backgroundImage = imageUrl ? `url('${imageUrl}')` : "";
   }
 
@@ -95,13 +101,13 @@ async function loadContent() {
     `;
   });
 
-  setText("about-text", data.pages.about);
-  setText("mission-text", data.pages.mission);
-  setText("vision-text", data.pages.vision);
-  setText("principal-message", data.pages.principalMessage);
-  setText("history-text", data.pages.history);
+  setText("about-text", pages.about);
+  setText("mission-text", pages.mission);
+  setText("vision-text", pages.vision);
+  setText("principal-message", pages.principalMessage);
+  setText("history-text", pages.history);
 
-  renderCards("values-list", data.pages.values, (item) => {
+  renderCards("values-list", pages.values, (item) => {
     return `<span class="chip">${escapeHtml(item)}</span>`;
   });
 
@@ -199,28 +205,28 @@ async function loadContent() {
     `;
   });
 
-  setText("contact-address", data.settings.address);
-  setText("contact-phone", data.settings.phone);
-  setText("contact-email", data.settings.email);
+  setText("contact-address", settings.address);
+  setText("contact-phone", settings.phone);
+  setText("contact-email", settings.email);
 
   const socialLinks = [];
-  if (data.settings.social.instagram) {
-    const href = safeUrl(data.settings.social.instagram);
+  if (social.instagram) {
+    const href = safeUrl(social.instagram);
     if (href) socialLinks.push(`<a href="${escapeHtml(href)}" target="_blank" rel="noreferrer">Instagram</a>`);
   }
-  if (data.settings.social.youtube) {
-    const href = safeUrl(data.settings.social.youtube);
+  if (social.youtube) {
+    const href = safeUrl(social.youtube);
     if (href) socialLinks.push(`<a href="${escapeHtml(href)}" target="_blank" rel="noreferrer">YouTube</a>`);
   }
-  if (data.settings.social.x) {
-    const href = safeUrl(data.settings.social.x);
+  if (social.x) {
+    const href = safeUrl(social.x);
     if (href) socialLinks.push(`<a href="${escapeHtml(href)}" target="_blank" rel="noreferrer">X</a>`);
   }
   setHtml("social-links", socialLinks.join(""));
 
   const mapFrame = document.getElementById("map-frame");
   if (mapFrame) {
-    const src = safeUrl(data.settings.mapUrl);
+    const src = safeUrl(settings.mapUrl);
     if (src) mapFrame.src = src;
   }
 }
